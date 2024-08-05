@@ -1,0 +1,15 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: "AWS::Serverless-2016-10-31"
+Description: DevOpsBot Bootstrap Lambda Function
+Resources:
+  ServiceUpdatesFunction:
+    Type: "AWS::Serverless::Function"
+    Properties:
+      Handler: index.handler
+      Runtime: nodejs20.x
+      CodeUri: ./
+      Timeout: 10
+      Description: "DevOpsBot Bootstrap Lambda Function"
+      Policies:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+        - !Sub 'arn:aws:iam::${AWS::AccountId}:policy/cloudbot-codepipeline-s3'
