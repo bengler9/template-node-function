@@ -7,7 +7,7 @@ Resources:
     Properties:
       Handler: index.handler
       Runtime: nodejs20.x
-      CodeUri: ./
+      CodeUri: s3://cloudbot-build-artifacts/$ACCOUNTID/$NAME/lambda_function.zip
       Timeout: 10
       Description: "DevOpsBot Bootstrap Lambda Function"
       Policies:
